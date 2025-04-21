@@ -1,0 +1,52 @@
+# find_my_audience.py
+
+import streamlit as st
+
+st.set_page_config(page_title="Find My Audience Agent", layout="centered")
+
+# 🎯 Title
+st.title("🎯 Find My Audience Agent")
+st.markdown("Use this AI-powered agent to help target your ideal audience for your book, course, or product!")
+
+# 📥 User Input
+st.header("📌 Let's Start With a Few Questions")
+
+book_title = st.text_input("📚 What is the title of your book or product?")
+book_description = st.text_area("📝 Provide a short description or summary")
+genre = st.text_input("🎭 What is the genre or niche?")
+tone = st.text_input("🎤 What is the tone or vibe? (e.g., humorous, serious, educational)")
+goal = st.text_input("🎯 What do you want your audience to do? (e.g., buy, subscribe, learn)")
+
+submit = st.button("🔍 Find My Audience")
+
+# 🤖 Output
+if submit:
+    with st.spinner("Generating your audience profile..."):
+        st.markdown("---")
+        st.subheader("✅ Ideal Audience Summary")
+
+        st.write(f"**📘 Title**: {book_title}")
+        st.write(f"**📝 Description**: {book_description}")
+        st.write(f"**🎭 Genre/Niche**: {genre}")
+        st.write(f"**🎤 Tone/Vibe**: {tone}")
+        st.write(f"**🎯 Goal**: {goal}")
+
+        st.markdown("### 👥 Target Audience")
+        st.write(
+            f"Based on the information provided, your ideal audience likely includes:\n\n"
+            f"- Readers interested in **{genre}** content\n"
+            f"- People who enjoy a **{tone}** tone\n"
+            f"- Individuals looking to **{goal}**\n"
+            f"- Age range: 25–45 (adjustable based on genre)\n"
+            f"- Found on platforms like **Amazon, Goodreads, Reddit, YouTube, Instagram**, and niche forums\n"
+        )
+
+        st.markdown("### 💬 Marketing Suggestions")
+        st.write(
+            f"- Post quotes, tips, and visuals from your content on **Instagram** and **Pinterest**\n"
+            f"- Create **short videos or voice-over reels** summarizing highlights (for YouTube Shorts or TikTok)\n"
+            f"- Join relevant **Facebook Groups or Subreddits** to provide value and plug your work naturally\n"
+            f"- Reach out to **bloggers and podcasters** in your niche for interviews or guest content\n"
+        )
+
+        st.success("Done! You now have a tailored profile to start building your marketing funnel.")
